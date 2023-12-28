@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://behp3rprxolwn"]
+[gd_scene load_steps=6 format=3 uid="uid://behp3rprxolwn"]
+
+[ext_resource type="PackedScene" uid="uid://rbiqipginfus" path="res://Player/Player.tscn" id="1_gxxyj"]
 
 [sub_resource type="GDScript" id="GDScript_kl7mo"]
 script/source = "extends Node2D
@@ -14,5 +16,36 @@ func _process(delta):
 	pass
 "
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lusad"]
+size = Vector2(495.094, 79.125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mogyi"]
+size = Vector2(48, 351.781)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0jyip"]
+size = Vector2(48, 360)
+
 [node name="World" type="Node2D"]
 script = SubResource("GDScript_kl7mo")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_gxxyj")]
+position = Vector2(32, 352)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(247.547, 416)
+shape = SubResource("RectangleShape2D_lusad")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-16, 224)
+shape = SubResource("RectangleShape2D_mogyi")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(496, 208)
+shape = SubResource("RectangleShape2D_0jyip")
+
+[node name="Panel" type="Panel" parent="."]
+offset_top = 376.0
+offset_right = 496.0
+offset_bottom = 408.0
