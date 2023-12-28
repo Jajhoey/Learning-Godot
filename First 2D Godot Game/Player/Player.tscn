@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://rbiqipginfus"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hdm12"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q68p2"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+position = Vector2(103, 113)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_hdm12")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_q68p2")
